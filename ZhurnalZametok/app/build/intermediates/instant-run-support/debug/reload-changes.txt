@@ -1,0 +1,11 @@
+CHANGED,D:\myAndroidDevelopment\myMemoBricks\Test8\app\build\intermediates\transforms\instantRun\debug\folders\4000\5\enhanced\com\blogspot\adjanybekov\test8\MainActivity$MemoAdapter$override.class
+CHANGED,D:\myAndroidDevelopment\myMemoBricks\Test8\app\build\intermediates\transforms\instantRun\debug\folders\4000\5\enhanced\com\blogspot\adjanybekov\test8\R$id$override.class
+CHANGED,D:\myAndroidDevelopment\myMemoBricks\Test8\app\build\intermediates\transforms\instantRun\debug\folders\4000\5\enhanced\com\blogspot\adjanybekov\test8\R$layout$override.class
+CHANGED,D:\myAndroidDevelopment\myMemoBricks\Test8\app\build\intermediates\transforms\instantRun\debug\folders\4000\5\enhanced\com\blogspot\adjanybekov\test8\R$style$override.class
+CHANGED,D:\myAndroidDevelopment\myMemoBricks\Test8\app\build\intermediates\transforms\instantRun\debug\folders\4000\5\enhanced\com\android\tools\fd\runtime\AppPatchesLoaderImpl.class
+CHANGED,D:\myAndroidDevelopment\myMemoBricks\Test8\app\build\intermediates\transforms\instantRun\debug\folders\4000\5\enhanced\com\blogspot\adjanybekov\test8\R$drawable$override.class
+CHANGED,D:\myAndroidDevelopment\myMemoBricks\Test8\app\build\intermediates\transforms\instantRun\debug\folders\4000\5\enhanced\android\support\v7\appcompat\R$drawable$override.class
+CHANGED,D:\myAndroidDevelopment\myMemoBricks\Test8\app\build\intermediates\transforms\instantRun\debug\folders\4000\5\enhanced\com\blogspot\adjanybekov\test8\R$styleable$override.class
+CHANGED,D:\myAndroidDevelopment\myMemoBricks\Test8\app\build\intermediates\transforms\instantRun\debug\folders\4000\5\enhanced\com\blogspot\adjanybekov\test8\R$mipmap$override.class
+CHANGED,D:\myAndroidDevelopment\myMemoBricks\Test8\app\build\intermediates\transforms\instantRun\debug\folders\4000\5\enhanced\com\blogspot\adjanybekov\test8\R$integer$override.class
+CHANGED,D:\myAndroidDevelopment\myMemoBricks\Test8\app\build\intermediates\transforms\instantRun\debug\folders\4000\5\enhanced\com\blogspot\adjanybekov\test8\R$string$override.class
