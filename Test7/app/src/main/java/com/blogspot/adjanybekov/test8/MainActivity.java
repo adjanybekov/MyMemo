@@ -1,4 +1,4 @@
-package com.blogspot.adjanybekov.test7;
+package com.blogspot.adjanybekov.test8;
 
 import android.content.Context;
 import android.content.Intent;
@@ -47,7 +47,11 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                         MyMemo memo = (MyMemo)(parent.getItemAtPosition(position));
-                        onItemClicked(memo);
+                        Intent goToTextActivity = new Intent(MainActivity.this, Textfield.class);
+                        goToTextActivity.putExtra("TitleToEdit", memo.getTitle());
+                        goToTextActivity.putExtra("TextToEdit", memo.getText());
+                        startActivity(goToTextActivity);
+
                     }
                 }
         );
@@ -55,7 +59,8 @@ public class MainActivity extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        onAddClicked();
+                            Intent goToTextActivity = new Intent(MainActivity.this, Textfield.class);
+                            startActivity(goToTextActivity);
                     }
                 }
         );
@@ -67,27 +72,15 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         dBaccess.open();
-
         this.memoList = dBaccess.getAllMyMemos();
-        for(MyMemo memo: memoList){
-            System.out.println("InLoop"+memo.getTitle());
-        }
         MemoAdapter memoAdapter = new MemoAdapter(this,memoList);
         this.memoView.setAdapter(memoAdapter);
         dBaccess.close();
     }
 
-    public void onItemClicked(MyMemo memo){
-        Intent goToTextActivity = new Intent(this, Textfield.class);
-        goToTextActivity.putExtra("TitleToEdit", memo.getTitle());
-        goToTextActivity.putExtra("TextToEdit", memo.getText());
-        startActivity(goToTextActivity);
-    }
 
-    public void onAddClicked(){
-        Intent goToTextActivity = new Intent(this, Textfield.class);
-        startActivity(goToTextActivity);
-    }
+
+
 
 
 

@@ -1,4 +1,4 @@
-package com.blogspot.adjanybekov.test7;
+package com.blogspot.adjanybekov.test8;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -11,22 +11,22 @@ import java.util.List;
 
 public class MyDBHandler {
     private SQLiteDatabase database;
-    private MyDB openHelper;
-    private static volatile MyDBHandler instance;
+    private MyDB myDB;
+    private static volatile MyDBHandler myDBHandler;
 
-    private MyDBHandler(Context context) {
-        this.openHelper = new MyDB(context,null,null,1);
+    public MyDBHandler(Context context) {
+        this.myDB = new MyDB(context,null,null,1);
     }
 
     public static synchronized MyDBHandler getInstance(Context context) {
-        if (instance == null) {
-            instance = new MyDBHandler(context);
+        if (myDBHandler == null) {
+            myDBHandler = new MyDBHandler(context);
         }
-        return instance;
+        return myDBHandler;
     }
 
     public void open() {
-        this.database = openHelper.getWritableDatabase();
+        this.database = myDB.getWritableDatabase();
     }
 
     public void close() {

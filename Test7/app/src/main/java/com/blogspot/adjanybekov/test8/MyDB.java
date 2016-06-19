@@ -1,4 +1,4 @@
-package com.blogspot.adjanybekov.test7;
+package com.blogspot.adjanybekov.test8;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;

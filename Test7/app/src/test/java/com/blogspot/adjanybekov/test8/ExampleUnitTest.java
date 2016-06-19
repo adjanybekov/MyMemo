@@ -1,4 +1,4 @@
-package com.blogspot.adjanybekov.test7;
+package com.blogspot.adjanybekov.test8;
 
 import org.junit.Test;
 

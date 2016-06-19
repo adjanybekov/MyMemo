@@ -1,4 +1,4 @@
-package com.blogspot.adjanybekov.test7;
+package com.blogspot.adjanybekov.test8;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
