@@ -1,3 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<items version="2" />
+<items version="2" >
 
+    <item
+        jar="D:\myAndroidDevelopment\myMemoBricks\Test8\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="dea70daa1f32fab9ec867f8a4a155db5671c7b9a">
+        <dex dex="D:\myAndroidDevelopment\myMemoBricks\Test8\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_43beeae44357cbb3023b323e3f86f45d7f358703\classes.dex" />
+    </item>
+
+</items>
