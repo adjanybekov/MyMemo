@@ -20,9 +20,17 @@ public class MyMemo {
     }
 
     public MyMemo() {
+        this._id = new Date();
+    }
+    public long getTime() {
+        return _id.getTime();
     }
 
-    public MyMemo( String title,String text) {
+    public void setTime(long time) {
+        this._id = new Date(time);
+    }
+    public MyMemo( String title,String text,long _id) {
+        this._id = new Date(_id);
         this.text = text;
         this.title = title;
     }

@@ -37,8 +37,7 @@ public class MyDBHandler {
 
     public void save(MyMemo memo) {
         ContentValues values = new ContentValues();
-        memo.set_id(new Date());
-        values.put("_id",memo.get_id().getTime());
+        values.put(MyDB.COLUMN_ID, memo.getTime());
         values.put(MyDB.COLUMN_TITLE, memo.getTitle());
         values.put(MyDB.COLUMN_TEXT, memo.getText());
         database.insert(MyDB.TABLE_MEMOS, null, values);
@@ -46,17 +45,17 @@ public class MyDBHandler {
 
     public void update(MyMemo memo) {
         ContentValues values = new ContentValues();
-        memo.set_id(new Date());
-        values.put(MyDB.COLUMN_ID,memo.get_id().getTime());
+        //memo.set_id(new Date().getTime());
+        String id = Long.toString(memo.getTime());
+        values.put(MyDB.COLUMN_ID, new Date().getTime());//we need to reset existing date
         values.put(MyDB.COLUMN_TITLE, memo.getTitle());
         values.put(MyDB.COLUMN_TEXT, memo.getText());
-        database.update(MyDB.TABLE_MEMOS, values, null, null);
+        database.update(MyDB.TABLE_MEMOS, values,MyDB.COLUMN_ID+"= ?", new String[]{id});
     }
 
     public void delete(MyMemo memo) {
-        String id = memo.getTitle();
-        database.delete(MyDB.TABLE_MEMOS, "title = ?", new String[]{id});
-
+        String id = Long.toString(memo.getTime());
+        database.delete(MyDB.TABLE_MEMOS, MyDB.COLUMN_ID+"= ?", new String[]{id});
         //database.execSQL("DELETE FROM " + MyDB.TABLE_MEMOS + " WHERE " + MyDB.COLUMN_TITLE+ "=\"" + memo.getTitle()+ "\";");
     }
 
@@ -67,9 +66,10 @@ public class MyDBHandler {
 
         cursor.moveToFirst();
         while (!cursor.isAfterLast()) {
+            long id = cursor.getLong(0);
             String title= cursor.getString(1);
             String text = cursor.getString(2);
-            memos.add(new MyMemo(title, text));
+            memos.add(new MyMemo(title, text, id ));
             cursor.moveToNext();
         }
         cursor.close();

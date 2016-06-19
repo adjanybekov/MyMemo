@@ -40,10 +40,10 @@ public class MainActivity extends AppCompatActivity {
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                         MyMemo memo = (MyMemo)(parent.getItemAtPosition(position));
                         Intent goToTextActivity = new Intent(MainActivity.this, Textfield.class);
+                        goToTextActivity.putExtra("id", memo.getTime());
                         goToTextActivity.putExtra("TitleToEdit", memo.getTitle());
                         goToTextActivity.putExtra("TextToEdit", memo.getText());
                         startActivity(goToTextActivity);
-
                     }
                 }
         );
@@ -56,8 +56,6 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
         );
-
-
     }
 
     @Override
