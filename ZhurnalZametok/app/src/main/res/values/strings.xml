@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Заметки</string>
+    <string name="app_name">Zametki</string>
     <string name="Save">Сохранить</string>
     <string name="Cancel">Отменить</string>
     <string name="AddNote">Добавить</string>
