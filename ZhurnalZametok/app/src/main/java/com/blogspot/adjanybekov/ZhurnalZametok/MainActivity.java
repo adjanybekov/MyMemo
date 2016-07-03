@@ -1,7 +1,9 @@
 package com.blogspot.adjanybekov.ZhurnalZametok;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -68,22 +70,13 @@ public class MainActivity extends AppCompatActivity {
         dBaccess.close();
     }
 
+//ArrayAdapter class
+    class MemoAdapter extends ArrayAdapter<MyMemo> {
 
-
-
-
-
-
-
-
-
-    public class MemoAdapter extends ArrayAdapter<MyMemo> {
-
-
+        MyDBHandler dBaccess;
         ImageView delMemo;
         MyMemo memo;
-        //MyDBHandler dBaccess;
-        MainActivity mainActivity = new MainActivity();
+        ListView memoView;
         public MemoAdapter(Context context, List<MyMemo> resource) {
             super(context, 0, resource);
         }
@@ -103,7 +96,7 @@ public class MainActivity extends AppCompatActivity {
             TextView titleView = (TextView) customView.findViewById(R.id.IdMemoView);
             final ImageView delImage = (ImageView) customView.findViewById(R.id.IdDelView);
 
-
+            dBaccess = MyDBHandler.getInstance(MainActivity.this);
 
             titleView.setText(titleStr);
             delImage.setImageResource(R.drawable.delete);
@@ -111,21 +104,39 @@ public class MainActivity extends AppCompatActivity {
                     new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
-                                dBaccess.open();
-                                dBaccess.delete(memo);
-                                dBaccess.close();
+                            final AlertDialog alertDialog = new AlertDialog.Builder(MainActivity.this).create();
+                            alertDialog.setTitle("Delete memo");
+                            alertDialog.setMessage("Are you sure?");
+                            alertDialog.setButton(DialogInterface.BUTTON_POSITIVE,
+                                    "Yes", new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialogInterface, int i) {
 
-                                ArrayAdapter<MyMemo> adapter = (ArrayAdapter<MyMemo>) memoView.getAdapter();
-                                adapter.remove(memo);
-                                adapter.notifyDataSetChanged();
+                                            dBaccess.open();
+                                            dBaccess.delete(memo);
+                                            dBaccess.close();
+
+                                            memoView = (ListView) findViewById(R.id.IdListView);
+                                            ArrayAdapter<MyMemo> adapter = (ArrayAdapter<MyMemo>) memoView.getAdapter();
+                                            adapter.remove(memo);
+                                            adapter.notifyDataSetChanged();
+                                        }
+                                    }
+                            );
+                            alertDialog.setButton(DialogInterface.BUTTON_NEGATIVE,
+                                    "No", new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialogInterface, int i) {
+                                            alertDialog.cancel();
+                                        }
+                                    }
+                                        );
+
+                            alertDialog.show();
                         }
                     }
             );
-
-
-
             return customView;
         }
     }
-
 }
